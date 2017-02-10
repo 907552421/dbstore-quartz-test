@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="leo.test.mapper.JobMapper">
+
+    <resultMap id="baseResultMap" type="leo.test.beans.JobBean">
+
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="jobGroup" jdbcType="VARCHAR" property="jobGroup"/>
+        <result column="jobName" jdbcType="VARCHAR" property="jobName"/>
+        <result column="cron" jdbcType="VARCHAR" property="cron"/>
+        <result column="jobClass" jdbcType="VARCHAR" property="jobClass"/>
+
+        <result column="tags" jdbcType="VARCHAR" property="tags"/>
+        <result column="desc" jdbcType="VARCHAR" property="desc"/>
+        <result column="jsonData" jdbcType="VARCHAR" property="jsonData"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="createTime" jdbcType="DATE" property="createTime"/>
+        <association javaType="leo.test.beans.JobVersion" property="jobVersion">
+            <result column="version" jdbcType="VARCHAR" property="version"/>
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="leo.test.beans.JobBean">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert INTO l_job(jobGroup,jobName,name,cron,jobClass,version,status)
+        values(#{taskJobBean.jobGroup},#{taskJobBean.jobName},#{taskJobBean.name},#{taskJobBean.cron},#{taskJobBean.jobClass},#{taskJobBean.jobVersion.version},#{taskJobBean.status})
+    </insert>
+    <update id="update" parameterType="leo.test.beans.JobBean">
+        update l_job SET
+            jobGroup = #{jobBean.jobGroup},
+            jobName = #{jobBean.jobName},
+            name = #{jobBean.name},
+            cron = #{jobBean.cron},
+            jobClass = #{jobBean.jobClass},
+            version = #{jobBean.jobVersion.version},
+            tags = #{jobBean.tags},
+            `desc` = #{jobBean.desc},
+            jsonData = #{jobBean.jsonData},
+            status = #{jobBean.status},
+            jobGroup = #{jobBean.jobGroup}
+        where
+          jobName = #{jobBean.jobName}
+          and jobGroup = #{jobBean.jobGroup}
+
+    </update>
+
+    <select id="existJob" resultType="java.lang.Boolean">
+        SELECT count(1) > 0 from l_job
+        where jobGroup = #{jobGroup} and jobName = #{jobName}
+    </select>
+    <select id="queryAll" resultMap="baseResultMap">
+        select * from l_job
+    </select>
+
+</mapper>
