@@ -3,7 +3,7 @@ package leo.test.mapper;
  * Created by kuoyang.liang on 2017/2/8.
  */
 
-import leo.test.beans.JobBean;
+import leo.test.beans.JobConfigBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -17,12 +17,12 @@ import java.util.List;
  */
 public interface JobMapper {
 
-    int insert(@Param("taskJobBean") JobBean jobBean);
+    int save(@Param("taskJobBean") JobConfigBean jobConfigBean);
 
-    int update(@Param("jobBean") JobBean jobBean);
+    int update(@Param("jobConfigBean") JobConfigBean jobConfigBean);
 
-    Boolean existJob(@Param("jobName") String jobName,@Param("jobGroup") String jobGroup);
+    Boolean listJobs(@Param("jobName") String jobName, @Param("jobGroup") String jobGroup);
 
-    List<JobBean> queryAll();
+    List<JobConfigBean> queryAll();
 
 }

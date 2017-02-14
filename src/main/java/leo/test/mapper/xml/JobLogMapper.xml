@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="leo.test.mapper.JobLogMapper">
+
+    <insert id="save">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO l_job_log(
+        jobGroup,jobName,name,startTime,endTime,takeMs,success,version,jobClass,tags,remarks
+        ) VALUES(
+          #{jobLogBean.jobGroup},#{jobLogBean.jobName},#{jobLogBean.name},#{jobLogBean.startTime},#{jobLogBean.endTime},#{jobLogBean.takeMs},#{jobLogBean.success},#{jobLogBean.version},#{jobLogBean.jobClass},#{jobLogBean.tags},#{jobLogBean.remarks}
+        )
+    </insert>
+</mapper>

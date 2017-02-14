@@ -1,6 +1,7 @@
 package leo.test.services;
 
-import leo.test.beans.JobBean;
+import leo.test.beans.JobConfigBean;
+import leo.test.beans.JobLogBean;
 import org.quartz.SchedulerException;
 
 import java.text.ParseException;
@@ -10,14 +11,15 @@ import java.text.ParseException;
  */
 public interface JobService {
 
-    int insert(JobBean jobBean) throws ParseException, ClassNotFoundException;
+    int save(JobConfigBean jobConfigBean) throws ParseException, ClassNotFoundException;
 
-    int update(JobBean jobBean) throws ParseException, ClassNotFoundException;
+    int update(JobConfigBean jobConfigBean) throws ParseException, ClassNotFoundException;
+
+    int saveLog(JobLogBean jobLogBean);
 
     void reScanJobConfig();
 
-    void scheduleJob(JobBean jobBean) throws SchedulerException, ClassNotFoundException;
+    void scheduleJob(JobConfigBean jobConfigBean) throws SchedulerException, ClassNotFoundException;
 
-    void reScheduleJob(JobBean jobBean) throws SchedulerException, ClassNotFoundException;
-
+    void reScheduleJob(JobConfigBean jobConfigBean) throws SchedulerException, ClassNotFoundException;
 }

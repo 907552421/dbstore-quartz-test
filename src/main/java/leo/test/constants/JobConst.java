@@ -11,5 +11,8 @@ package leo.test.constants;
  * @author kuoyang.liang
  */
 public class JobConst {
-    public final static String JOBBEAN = "jobBean";
+    public final static String JOB_SERVICE = "jobService";
+    public final static String JOB_BIZ = "JobBiz";
+    public final static String JOB_BIZ_CONFIG_BEAN = "jobConfigBean";
+
 }

@@ -8,13 +8,13 @@ import org.apache.commons.lang3.NotImplementedException;
 import java.util.Date;
 
 /**
- * ClassName: JobBean<br/>
+ * ClassName: JobConfigBean<br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Date:     2017/2/8 <br/>
  *
  * @author kuoyang.liang
  */
-public class JobBean {
+public class JobConfigBean {
     private Integer id;
     private String jobGroup;
     private String jobName;
@@ -25,7 +25,7 @@ public class JobBean {
 
     @Override
     public boolean equals(Object obj) {
-        JobBean targetJobBean =  (JobBean)obj;
+        JobConfigBean targetJobConfigBean =  (JobConfigBean)obj;
         throw new NotImplementedException("not impl");
     }
 
@@ -38,7 +38,7 @@ public class JobBean {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("JobBean{");
+        final StringBuffer sb = new StringBuffer("JobConfigBean{");
         sb.append("id=").append(id);
         sb.append(", jobGroup='").append(jobGroup).append('\'');
         sb.append(", jobName='").append(jobName).append('\'');
@@ -53,7 +53,7 @@ public class JobBean {
         return sb.toString();
     }
 
-    public JobBean() {
+    public JobConfigBean() {
     }
 
     public Integer getId() {

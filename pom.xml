@@ -5,13 +5,13 @@
     <parent>
         <groupId>leo.common</groupId>
         <artifactId>leo-rootpom-generic</artifactId>
-        <jobVersion>1.0.0-SNAPSHOT</jobVersion>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.test</groupId>
     <artifactId>dbstore-quartz-test</artifactId>
     <packaging>jar</packaging>
-    <jobVersion>1.0-SNAPSHOT</jobVersion>
+    <version>1.0-SNAPSHOT</version>
     <name>dbstore-quartz-test</name>
     <url>http://maven.apache.org</url>
 
@@ -34,7 +34,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <jobVersion>3.2</jobVersion>
+                <version>3.2</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -45,7 +45,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <jobVersion>2.10</jobVersion>
+                <version>2.10</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -69,7 +69,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <jobVersion>3.0.2</jobVersion>
+                <version>3.0.2</version>
                 <configuration>
                     <classesDirectory>target/classes/</classesDirectory>
                     <archive>
@@ -96,19 +96,19 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <jobVersion>2.2.2</jobVersion>
+            <version>2.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
-            <jobVersion>2.2.2</jobVersion>
+            <version>2.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -123,111 +123,117 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <jobVersion>${org.springframework.jobVersion}</jobVersion>
+            <version>${org.springframework.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.7</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <jobVersion>3.4</jobVersion>
+            <version>3.4</version>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <jobVersion>2.5</jobVersion>
+            <version>2.5</version>
         </dependency>
 
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <jobVersion>1.9.2</jobVersion>
+            <version>1.9.2</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <jobVersion>1.1.7</jobVersion>
+            <version>1.1.7</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <jobVersion>1.1.7</jobVersion>
+            <version>1.1.7</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <jobVersion>1.7.13</jobVersion>
+            <version>1.7.13</version>
         </dependency>
 
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <jobVersion>1.2</jobVersion>
+            <version>1.2</version>
         </dependency>
 
         <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <jobVersion>5.1.38</jobVersion>
+            <version>5.1.38</version>
         </dependency>
 
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <jobVersion>3.2.7</jobVersion>
+            <version>3.2.7</version>
         </dependency>
 
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <jobVersion>1.2.2</jobVersion>
+            <version>1.2.2</version>
         </dependency>
 
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <jobVersion>4.12</jobVersion>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="leo.test.mapper.JobMapper">
 
-    <resultMap id="baseResultMap" type="leo.test.beans.JobBean">
+    <resultMap id="baseResultMap" type="leo.test.beans.JobConfigBean">
 
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="jobGroup" jdbcType="VARCHAR" property="jobGroup"/>
@@ -20,33 +20,33 @@
         </association>
     </resultMap>
 
-    <insert id="insert" parameterType="leo.test.beans.JobBean">
+    <insert id="save" parameterType="leo.test.beans.JobConfigBean">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert INTO l_job(jobGroup,jobName,name,cron,jobClass,version,status)
         values(#{taskJobBean.jobGroup},#{taskJobBean.jobName},#{taskJobBean.name},#{taskJobBean.cron},#{taskJobBean.jobClass},#{taskJobBean.jobVersion.version},#{taskJobBean.status})
     </insert>
-    <update id="update" parameterType="leo.test.beans.JobBean">
+    <update id="update" parameterType="leo.test.beans.JobConfigBean">
         update l_job SET
-            jobGroup = #{jobBean.jobGroup},
-            jobName = #{jobBean.jobName},
-            name = #{jobBean.name},
-            cron = #{jobBean.cron},
-            jobClass = #{jobBean.jobClass},
-            version = #{jobBean.jobVersion.version},
-            tags = #{jobBean.tags},
-            `desc` = #{jobBean.desc},
-            jsonData = #{jobBean.jsonData},
-            status = #{jobBean.status},
-            jobGroup = #{jobBean.jobGroup}
+            jobGroup = #{jobConfigBean.jobGroup},
+            jobName = #{jobConfigBean.jobName},
+            name = #{jobConfigBean.name},
+            cron = #{jobConfigBean.cron},
+            jobClass = #{jobConfigBean.jobClass},
+            version = #{jobConfigBean.jobVersion.version},
+            tags = #{jobConfigBean.tags},
+            `desc` = #{jobConfigBean.desc},
+            jsonData = #{jobConfigBean.jsonData},
+            status = #{jobConfigBean.status},
+            jobGroup = #{jobConfigBean.jobGroup}
         where
-          jobName = #{jobBean.jobName}
-          and jobGroup = #{jobBean.jobGroup}
+          jobName = #{jobConfigBean.jobName}
+          and jobGroup = #{jobConfigBean.jobGroup}
 
     </update>
 
-    <select id="existJob" resultType="java.lang.Boolean">
+    <select id="listJobs" resultType="java.lang.Boolean">
         SELECT count(1) > 0 from l_job
         where jobGroup = #{jobGroup} and jobName = #{jobName}
     </select>

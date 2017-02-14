@@ -3,7 +3,7 @@ package leo.test;
  * Created by kuoyang.liang on 2017/2/8.
  */
 
-import leo.test.beans.JobBean;
+import leo.test.beans.JobConfigBean;
 import leo.test.beans.JobVersion;
 import leo.test.mapper.JobMapper;
 import org.junit.Assert;
@@ -26,29 +26,29 @@ public class JobMapperTest extends  BaseUnitTest{
 
     @Test
     public void testInsert(){
-        JobBean jobBean = new JobBean();
-        jobBean.setJobGroup("g");
-        jobBean.setJobName("g");
-        jobBean.setName("a");
-        jobBean.setCron("b");
-        jobBean.setJobClass("b");
-        jobBean.setJobVersion(new JobVersion("22.2"));
-        jobBean.setStatus(1);
+        JobConfigBean jobConfigBean = new JobConfigBean();
+        jobConfigBean.setJobGroup("g");
+        jobConfigBean.setJobName("g");
+        jobConfigBean.setName("a");
+        jobConfigBean.setCron("b");
+        jobConfigBean.setJobClass("b");
+        jobConfigBean.setJobVersion(new JobVersion("22.2"));
+        jobConfigBean.setStatus(1);
 
-        int returnValue = this.jobMapper.insert(jobBean);
+        int returnValue = this.jobMapper.save(jobConfigBean);
         Assert.assertEquals(returnValue,1);
 }
 
     @Test
     public void testExistJob(){
-        boolean returnValue = this.jobMapper.existJob("g","g");
+        boolean returnValue = this.jobMapper.listJobs("g","g");
         Assert.assertTrue(returnValue);
     }
 
     @Test
     public void testQueryAll(){
-        List<JobBean> jobBeanList = this.jobMapper.queryAll();
-        Assert.assertTrue(jobBeanList.size() > 0);
+        List<JobConfigBean> jobConfigBeanList = this.jobMapper.queryAll();
+        Assert.assertTrue(jobConfigBeanList.size() > 0);
 
     }
 

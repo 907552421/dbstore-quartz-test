@@ -1,8 +1,10 @@
-package leo.test.jobs;
+package leo.test.jobs.impl;
 /**
  * Created by kuoyang.liang on 2017/2/9.
  */
 
+import leo.test.beans.JobConfigBean;
+import leo.test.jobs.JobBiz;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
@@ -19,10 +21,12 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class DemoJob extends QuartzJobBean{
+public class DemoJob implements JobBiz{
+
     final static Logger LOGGER = LoggerFactory.getLogger(QuartzJobBean.class);
+
     @Override
-    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
+    public void doJob(JobConfigBean jobConfigBean) {
         LOGGER.info("demo job");
     }
 }

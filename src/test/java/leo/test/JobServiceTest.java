@@ -3,9 +3,9 @@ package leo.test;
  * Created by kuoyang.liang on 2017/2/9.
  */
 
-import leo.test.beans.JobBean;
+import leo.test.beans.JobConfigBean;
 import leo.test.beans.JobVersion;
-import leo.test.jobs.DemoJob;
+import leo.test.jobs.impl.DemoJob;
 import leo.test.services.JobService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,15 +31,15 @@ public class JobServiceTest extends BaseUnitTest{
 
     @Test
     public void testInsert() throws ParseException, ClassNotFoundException {
-        JobBean jobBean = new JobBean();
-        jobBean.setJobGroup("d");
-        jobBean.setJobName("d");
-        jobBean.setName("a");
-        jobBean.setCron("0/5 * * * * ?");
-        jobBean.setJobClass(DemoJob.class.getName());
-        jobBean.setJobVersion(new JobVersion("1.1"));
-        jobBean.setStatus(1);
-        int returnValue =  this.jobService.insert(jobBean);
+        JobConfigBean jobConfigBean = new JobConfigBean();
+        jobConfigBean.setJobGroup("d");
+        jobConfigBean.setJobName("d");
+        jobConfigBean.setName("a");
+        jobConfigBean.setCron("0/5 * * * * ?");
+        jobConfigBean.setJobClass(DemoJob.class.getName());
+        jobConfigBean.setJobVersion(new JobVersion("1.1"));
+        jobConfigBean.setStatus(1);
+        int returnValue =  this.jobService.save(jobConfigBean);
         Assert.assertTrue(returnValue == 1);
         LOGGER.info("returnValue is {}",returnValue);
     }
