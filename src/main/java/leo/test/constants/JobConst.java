@@ -3,6 +3,8 @@ package leo.test.constants;
  * Created by kuoyang.liang on 2017/2/10.
  */
 
+import org.springframework.stereotype.Component;
+
 /**
  * ClassName: JobConst<br/>
  * Function: TODO ADD FUNCTION. <br/>
@@ -10,6 +12,8 @@ package leo.test.constants;
  *
  * @author kuoyang.liang
  */
+
+@Component
 public class JobConst {
     public final static String JOB_SERVICE = "jobService";
     public final static String JOB_BIZ = "JobBiz";

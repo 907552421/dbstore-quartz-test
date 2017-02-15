@@ -50,6 +50,8 @@ public class JobVersion implements Comparable<JobVersion> {
     }
 
     public void setVersion(String version) {
+        if(!Pattern.matches(Regexs.VERSIONREGEXSTRING,version))
+            throw new RuntimeException("给定的版本字符串不符合标准");
         this.version = version;
     }
 
